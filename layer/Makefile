@@ -49,8 +49,9 @@ installLib:
 		libexif-devel \
 		librsvg2-devel \
 		libtiff-devel \
-		lcms2-devel \
-		
+		lcms2-devel
+
+libvips: installLib libheif libwebp
 	# Install and enable the EPEL RPM package on Amazon Linux 2
 	yum install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm \
 
