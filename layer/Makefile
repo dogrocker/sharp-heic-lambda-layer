@@ -23,10 +23,12 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
-	curl -L http://li.nux.ro/download/nux/dextop/el7/x86_64/nux-dextop-release-0-5.el7.nux.noarch.rpm --output nux-dextop
-	yum -y install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
-	rpm -Uvh nux-dextop
-	yum install -y x265
+	RUN hg clone http://hg.videolan.org/x265
+        RUN cd ./x265/build/linux && \
+        	cmake -G "Unix Makefiles" ../../source && \
+        	make -j6 && \
+        	make install && \
+        	ldconfig
 
 libde265: x265
 	# libde265
