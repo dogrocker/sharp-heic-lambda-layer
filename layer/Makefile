@@ -23,13 +23,7 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
-	yum install -y mercurial
-	hg clone http://hg.videolan.org/x265
-	cd ./x265/build/linux && \
-		cmake -G "Unix Makefiles" ../../source && \
-		make -j6 && \
-		make install && \
-		ldconfig
+	dnf --enablerepo=raven-multimedia install x265
 
 libde265: x265
 	# libde265
