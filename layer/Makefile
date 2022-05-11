@@ -23,14 +23,13 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
-	yum install -y mercurial
 	yum install -y cmake
-	hg clone http://hg.videolan.org/x265
-	cd ./x265/build/linux && \
-		cmake -G "Unix Makefiles" ../../source && \
-		make -j6 && \
-		make install
-	PATH="/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:/usr/local/opt/sam-cli/bin:/sbin" ldconfig -n /opt/lib
+	# PATH="/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:/usr/local/opt/sam-cli/bin:/sbin" ldconfig -n /opt/lib
+	git clone https://bitbucket.org/multicoreware/x265_git.git
+	cd x265/build/linux
+	PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$(PREFIX_PATH) -DENABLE_SHARED:bool=off ../../source && \
+	PATH="$HOME/bin:$PATH" make && \
+	make install
 
 libde265: x265
 	# libde265
