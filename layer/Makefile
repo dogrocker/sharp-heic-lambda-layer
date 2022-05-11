@@ -51,6 +51,7 @@ installLib:
 	yum install -y yum-plugin-ovl && \
 	yum install -y \
 		glib2-devel \
+		poppler-glib-devel \
 		expat-devel \
 		libjpeg-devel \
 		libjpeg-turbo-devel \
