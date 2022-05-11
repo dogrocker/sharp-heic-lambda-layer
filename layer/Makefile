@@ -23,6 +23,7 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
+	yum install -y glibc
 	yum install -y mercurial
 	yum install -y cmake
 	hg clone http://hg.videolan.org/x265
