@@ -23,7 +23,15 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
-	curl https://download1.rpmfusion.org/free/el/updates/7/x86_64/x/x265-devel-2.9-3.el7.x86_64.rpm --output x265-devel.rpm && yum install -y x265-devel.rpm
+	yum install -y mercurial
+	yum install -y cmake
+	hg clone http://hg.videolan.org/x265
+	cd ./x265/build/linux && \
+		cmake -G "Unix Makefiles" ../../source && \
+		make -j6 && \
+		make install
+	mkdir -p $(PREFIX_PATH)/lib && \
+		cp /usr/local/lib/libx265.so.* $(PREFIX_PATH)/lib
 
 libde265: x265
 	# libde265
