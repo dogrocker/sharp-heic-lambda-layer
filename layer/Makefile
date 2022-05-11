@@ -30,7 +30,8 @@ x265:
 	cd ./x265/build/linux && \
 		cmake -G "Unix Makefiles" ../../source && \
 		make -j6 && \
-		make install
+		make install && \
+		ldconfig
 
 libde265: x265
 	# libde265
