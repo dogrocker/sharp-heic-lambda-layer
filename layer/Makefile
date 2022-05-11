@@ -24,7 +24,7 @@ libwebp:
 
 x265:
 	hg clone http://hg.videolan.org/x265
-        cd ./x265/build/linux && \
+	cd ./x265/build/linux && \
 		cmake -G "Unix Makefiles" ../../source && \
 		make -j6 && \
 		make install && \
