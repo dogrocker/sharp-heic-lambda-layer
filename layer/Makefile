@@ -23,7 +23,7 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
-	curl https://download1.rpmfusion.org/free/el/updates/7/x86_64/x/x265-devel-2.9-3.el7.x86_64.rpm --output x265-devel && yum install -y x265-devel
+	curl https://download1.rpmfusion.org/free/el/updates/7/x86_64/x/x265-devel-2.9-3.el7.x86_64.rpm --output x265-devel.rpm && yum install -y x265-devel.rpm
 
 libde265: x265
 	# libde265
