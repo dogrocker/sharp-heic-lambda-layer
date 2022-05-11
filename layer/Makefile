@@ -26,7 +26,7 @@ x265:
 	yum install -y cmake
 	# PATH="/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:/usr/local/opt/sam-cli/bin:/sbin" ldconfig -n /opt/lib
 	git clone https://bitbucket.org/multicoreware/x265_git.git
-	cd x265/build/linux
+	cd x265_git/build/linux
 	PATH="$HOME/bin:$PATH" cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$(PREFIX_PATH) -DENABLE_SHARED:bool=off ../../source && \
 	PATH="$HOME/bin:$PATH" make && \
 	make install
