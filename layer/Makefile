@@ -25,6 +25,7 @@ libwebp:
 x265:
 	yum install -y mercurial
 	yum install -y cmake
+	rpm -qf /usr/sbin/ldconfig
 	hg clone http://hg.videolan.org/x265
 	cd ./x265/build/linux && \
 		cmake -G "Unix Makefiles" ../../source && \
