@@ -27,7 +27,7 @@ x265:
 	yum install -y cmake
 	hg clone http://hg.videolan.org/x265
 	cd ./x265/build/linux && \
-		cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$(PREFIX_PATH) -DENABLE_SHARED:bool=off ../../source && \
+		cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=$(PREFIX_PATH) ../../source && \
 		make && \
 		make install
 	# PATH="/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:/usr/local/opt/sam-cli/bin:/sbin" ldconfig -n /opt/lib
