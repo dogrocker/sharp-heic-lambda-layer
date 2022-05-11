@@ -23,6 +23,8 @@ libwebp:
 	cd libwebp-$(WEBP_VERSION) && ./autogen.sh && ./configure --enable-libwebpmux --prefix=$(PREFIX_PATH) && make V=0 && make install
 
 x265:
+	yum install epel-release -y
+	yum install dnf -y
 	dnf --enablerepo=raven-multimedia install x265
 
 libde265: x265
