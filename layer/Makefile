@@ -30,8 +30,7 @@ x265:
 		cmake -G "Unix Makefiles" ../../source && \
 		make -j6 && \
 		make install
-	mkdir -p $(PREFIX_PATH)/lib && \
-		cp /usr/local/lib/libx265.so.* $(PREFIX_PATH)/lib
+	PATH="/var/lang/bin:/usr/local/bin:/usr/bin/:/bin:/opt/bin:/usr/local/opt/sam-cli/bin:/sbin" ldconfig -n /opt/lib
 
 libde265: x265
 	# libde265
